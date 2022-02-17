@@ -15,9 +15,10 @@ public class Teste{
         this.var2 = B;
     }
 
-    @Override
-    public String toString(){
-        return "HAHAHAHAHAHAHA";
+    public void sayWords(){
+        String A = this.var1;
+        String B = this.var2;
+        System.out.println(A + " " + B + "!!");
     }
     
 }
