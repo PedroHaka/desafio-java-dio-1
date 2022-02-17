@@ -2,7 +2,7 @@ package teste;
 
 public class Main {
     public static void main(String[] args) {
-        //variables
+        /* //variables
         String var1 = "Hello";
         String var2 = "World";
 
@@ -10,6 +10,8 @@ public class Main {
         Teste compliment = new Teste(var1, var2);
 
         //calling functions/methods
-        compliment.toString();
+        compliment.toString(); */
+
+        System.out.println("Olá Mundo!");
     }
 }
