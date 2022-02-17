@@ -2,6 +2,7 @@ package bancodigitaldio;
 
 public class Conta {
     private static int SEQUENCIAL = 1;
+    private static final int AGENCIA_PADRAO = 2201;
     
     protected int number;
     protected int agency;
@@ -10,9 +11,9 @@ public class Conta {
 
     //constructors
     public Conta(){
-        this.agency = 141;
+        this.agency = AGENCIA_PADRAO;
         this.number = SEQUENCIAL++;
-        this.balance = 0;
+        this.balance = 0.00;
     }
 
     public Conta(double balance, Cliente client){
