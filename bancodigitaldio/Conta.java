@@ -1,11 +1,13 @@
 package bancodigitaldio;
+import javax.swing.*;
 
-public class Conta {
+public abstract class Conta implements InterfaceConta{
     private static int SEQUENCIAL = 1;
     private static final int AGENCIA_PADRAO = 2201;
     
     protected int number;
     protected int agency;
+    protected String type;
     protected double balance;
     protected Cliente client;
 
@@ -28,16 +30,12 @@ public class Conta {
         return this.number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
     public int getAgency() {
         return this.agency;
     }
 
-    public void setAgency(int agency) {
-        this.agency = agency;
+    public String getType() {
+        return this.type;
     }
 
     public double getBalance() {
@@ -52,8 +50,36 @@ public class Conta {
         return this.client;
     }
 
-    public void setClient(Cliente client) {
-        this.client = client;
+    @Override
+    public void deposit(double value) {
+        if(value > 0)
+            this.balance += value;
+        if(value <= 0)
+            JOptionPane.showMessageDialog(null, "Insira um valor válido, maior que zero.");
+    }
+
+    @Override
+    public void withdraw(double value) {
+        if(value <= this.balance)
+            this.balance -= value;
+        if(value > this.balance)
+            JOptionPane.showMessageDialog(null, "Quantia excede o saldo total, tente novamente!");
+
+    }
+
+    @Override
+    public void transfer(double value, Conta destinationAccount) {
+        this.withdraw(value);
+        destinationAccount.deposit(value);
+    }
+
+    @Override
+    public String toString() {
+        return "number=" + getNumber() +
+            "\nagency=" + getAgency() +
+            "\ntype =" + getType() +
+            "\nbalance=" + getBalance() +
+            "\nclient=" + this.client.getName();
     }
 
 }

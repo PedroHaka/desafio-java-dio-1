@@ -29,4 +29,12 @@ public class Cliente {
         this.cpf = cpf;
     }
 
+    @Override
+    public String toString() {
+        return "\nCliente {" +
+            "\nname='" + getName() +
+            "\ncpf='" + getCpf() +
+            "\n}";
+    }
+
 }
